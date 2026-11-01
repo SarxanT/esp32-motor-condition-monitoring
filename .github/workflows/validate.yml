@@ -1,0 +1,40 @@
+name: ESP32 firmware and gateway checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Offline Python and Wokwi checks
+        run: python3 -m unittest discover -s tests -v
+
+  esp32-compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Install Arduino CLI
+        uses: arduino/setup-arduino-cli@v2
+      - name: Install ESP32 board core
+        run: |
+          arduino-cli core update-index --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+          arduino-cli core install esp32:esp32 --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+      - name: Install sensor and MQTT libraries
+        run: |
+          arduino-cli lib install OneWire DallasTemperature 'Adafruit MPU6050' PubSubClient ArduinoJson
+      - name: Compile Node 1 and Node 2
+        run: |
+          arduino-cli compile --fqbn esp32:esp32:esp32 esp32-nodes/node1_temperature_vibration
+          arduino-cli compile --fqbn esp32:esp32:esp32 esp32-nodes/node2_current_rpm

@@ -1,0 +1,10 @@
+# Python / local credentials / generated data
+**/config.json
+**/secrets.h
+**/.env
+.venv/
+__pycache__/
+*.py[cod]
+*.log
+*.csv
+.DS_Store

@@ -1,0 +1,193 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 33.64,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ds18b20",
+      "id": "temp1",
+      "top": -135.53,
+      "left": -149.52,
+      "attrs": {
+        "temperature": "29.4"
+      }
+    },
+    {
+      "type": "wokwi-mpu6050",
+      "id": "imu1",
+      "top": -130.58,
+      "left": 194.32,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": 13.6,
+      "left": 375.5,
+      "attrs": {
+        "common": "anode"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 147.95,
+      "left": 278.4,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 128.75,
+      "left": 288,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 109.55,
+      "left": 297.6,
+      "attrs": {
+        "value": "1000"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "temp1:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "temp1:GND",
+      "esp:GND.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "temp1:DQ",
+      "esp:4",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "imu1:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "imu1:GND",
+      "esp:GND.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "imu1:SDA",
+      "esp:21",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "imu1:SCL",
+      "esp:22",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "rgb1:R",
+      "r3:2",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "rgb1:G",
+      "r2:2",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "rgb1:B",
+      "r1:2",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "r3:1",
+      "esp:25",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "r2:1",
+      "esp:26",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "r1:1",
+      "esp:27",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "rgb1:COM",
+      "esp:3V3",
+      "green",
+      [
+        "v0"
+      ]
+    ]
+  ],
+  "dependencies": {}
+}

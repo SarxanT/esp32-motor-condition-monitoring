@@ -1,0 +1,5 @@
+OneWire
+DallasTemperature
+Adafruit MPU6050
+PubSubClient
+ArduinoJson
