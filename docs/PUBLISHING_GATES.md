@@ -7,7 +7,7 @@
 - [x] Parsed both Wokwi JSON files and compiled Python source to bytecode for syntax inspection.
 - [ ] Rotate/revoke the original ThingSpeak write and TalkBack keys.
 - [ ] Choose distinct non-identifying MQTT topic namespaces (or authenticated TLS broker for real telemetry).
-- [ ] Verify the two ESP32 sketches compile with the needed ESP32 libraries.
+- [x] Both ESP32 sketches compiled successfully in [GitHub Actions](https://github.com/SarxanT/esp32-motor-condition-monitoring/actions/runs/41305301047) (1 November 2026).
 - [ ] Verify Wokwi diagrams and runtime behavior in each independent project.
 - [ ] Verify the gateway against controlled test payloads and cloud upload without leaking keys.
 - [ ] Check fallback TalkBack behaviors and acknowledge/report failures honestly.

@@ -1,5 +1,7 @@
 # Two-Node IoT Motor-Condition Monitoring — Experimental Source Draft
 
+[![ESP32 firmware and gateway checks](https://github.com/SarxanT/esp32-motor-condition-monitoring/actions/workflows/validate.yml/badge.svg)](https://github.com/SarxanT/esp32-motor-condition-monitoring/actions/workflows/validate.yml)
+
 **PUBLIC SOURCE DRAFT — NOT YET VERIFIED END TO END.** This project is a separate, more advanced coursework prototype, preserved as a source snapshot for Week 3+ review. It simulates motor measurements; **it does not contain an AI predictive-maintenance model, physical motor protection, or a validated industrial system.**
 
 ## What is here
@@ -36,9 +38,9 @@ The owner supplied [ThingSpeak channel 3521581](https://thingspeak.mathworks.com
 
 ## Validation status
 
-- Python scripts: syntax compilation checked, **not executed against a broker**. GitHub CI also runs static tests.
+- Python scripts: syntax and offline structural checks **passed** in [GitHub Actions](https://github.com/SarxanT/esp32-motor-condition-monitoring/actions/runs/41305301047); **not executed against a broker**.
 - Wokwi JSON files: parse checked, **not simulated**.
-- ESP32 sketches: **not yet verified by a successful compile at the time of publication**. GitHub CI is configured to compile both.
+- ESP32 sketches: **both compiled successfully** for `esp32:esp32:esp32` in [GitHub Actions](https://github.com/SarxanT/esp32-motor-condition-monitoring/actions/runs/41305301047) on 1 November 2026. This does not verify Wokwi simulation or physical hardware.
 - ThingSpeak/TalkBack and cross-node behavior: **not verified** in this session.
 
 ## Origin
